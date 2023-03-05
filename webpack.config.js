@@ -7,6 +7,11 @@ const { dependencies } = require("./package.json");
 module.exports = {
   entry: "./src/index",
   mode: "development",
+  output: {
+    path: path.resolve(__dirname, "build"), // change this
+    publicPath: "/",
+    filename: "bundle.js",
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, "public"),
