@@ -9,6 +9,8 @@ import {
   gql,
   HttpLink,
 } from "@apollo/client";
+import store from "./Redux/store";
+import { Provider } from "react-redux";
 
 const app = new Realm.App("commoditybazar-fyqlz");
 
@@ -42,7 +44,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
     <React.StrictMode>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>
   </ApolloProvider>
 );

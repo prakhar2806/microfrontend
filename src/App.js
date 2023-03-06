@@ -15,6 +15,7 @@ export default function App() {
         thumbnail
         brand
         category
+        id
       }
     }
   `;
@@ -26,9 +27,9 @@ export default function App() {
     if (error) return <p>Error : {error.message}</p>;
     console.log("data", data);
     return (
-      <div class="cardsContainer">
-        {data.commodities.map((product) => (
-          <Cards key={product.id} data={product} />
+      <div className="cardsContainer">
+        {data.commodities.map((product, index) => (
+          <Cards key={`${product.id}_index`} data={product} />
         ))}
       </div>
     );
@@ -36,8 +37,26 @@ export default function App() {
 
   return (
     <div>
-      <h2>User product shopping cart 🛒</h2>
-      <GetCommdities />
+      <div className="header">
+        <a href="#default" className="logo">
+          LAXMI CHITFUND
+        </a>
+        <div className="header-right">
+          <a className="active" href="#home">
+            CART
+          </a>
+          <a className="active" href="#home">
+            WISHLIST
+          </a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+      <div className="content">
+        <div className="contentWrapper">
+          <GetCommdities />
+        </div>
+      </div>
     </div>
   );
 }
