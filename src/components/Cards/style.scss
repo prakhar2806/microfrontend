@@ -18,3 +18,18 @@
         }
     }
 }
+.addToCart{
+    // pointer-events: none;
+}
+
+.removeFromCart{
+    background-color: rgb(255,62,108);
+    border:1px solid rgb(255,62,108);
+    color: black;
+}
+
+.buyNow{
+    background-color: white;
+    border:1px solid black;
+    color: black;
+}

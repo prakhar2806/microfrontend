@@ -11,6 +11,7 @@ import {
 } from "@apollo/client";
 import store from "./Redux/store";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 const app = new Realm.App("commoditybazar-fyqlz");
 
@@ -43,10 +44,12 @@ const client = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ApolloProvider client={client}>
-    <React.StrictMode>
-      <Provider store={store}>
+    {/* <React.StrictMode> */}
+    <Provider store={store}>
+      <BrowserRouter>
         <App />
-      </Provider>
-    </React.StrictMode>
+      </BrowserRouter>
+    </Provider>
+    {/* </React.StrictMode> */}
   </ApolloProvider>
 );

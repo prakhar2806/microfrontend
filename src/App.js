@@ -1,60 +1,42 @@
 // Import everything needed to use the `useQuery` hook
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
-import Cards from "./components/Cards";
+import About from "./components/About";
+import Cart from "./components/Cart";
+import Home from "./components/Home";
+import Wishlist from "./components/Wishlist";
+import Profile from "./components/Profile";
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 
 export default function App() {
-  const GET_COMMODITIES = gql`
-    query {
-      commodities {
-        title
-        description
-        discountPercentage
-        images
-        thumbnail
-        brand
-        category
-        id
-      }
-    }
-  `;
-
-  function GetCommdities() {
-    const { loading, error, data } = useQuery(GET_COMMODITIES);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error : {error.message}</p>;
-    console.log("data", data);
-    return (
-      <div className="cardsContainer">
-        {data.commodities.map((product, index) => (
-          <Cards key={`${product.id}_index`} data={product} />
-        ))}
-      </div>
-    );
-  }
-
   return (
     <div>
       <div className="header">
-        <a href="#default" className="logo">
+        <Link className="logo" to="/">
           LAXMI CHITFUND
-        </a>
+        </Link>
         <div className="header-right">
-          <a className="active" href="#home">
+          <Link className="active" to="cart">
             CART
-          </a>
-          <a className="active" href="#home">
+          </Link>
+          <Link className="active" to="wishlist">
             WISHLIST
-          </a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
+          </Link>
+          <Link to="userProfile">User Profile</Link>
+          <Link to="about">About</Link>
         </div>
       </div>
       <div className="content">
         <div className="contentWrapper">
-          <GetCommdities />
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="wishlist" element={<Wishlist />} />
+              <Route path="userProfile" element={<Profile />} />
+              <Route path="about" element={<About />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </div>
