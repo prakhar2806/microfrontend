@@ -12,6 +12,7 @@ import {
 import store from "./Redux/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const app = new Realm.App("commoditybazar-fyqlz");
 
@@ -47,7 +48,9 @@ root.render(
     {/* <React.StrictMode> */}
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <GoogleOAuthProvider clientId="885122894003-rsglhkv188v6cauqk03srpkbb0fp4114.apps.googleusercontent.com">
+          <App />
+        </GoogleOAuthProvider>
       </BrowserRouter>
     </Provider>
     {/* </React.StrictMode> */}
