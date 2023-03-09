@@ -28,7 +28,6 @@ const Home = () => {
       {data.commodities.map((product, index) => (
         <Cards key={`${product.id}_index`} data={product} />
       ))}
-      ``
     </div>
   );
 };

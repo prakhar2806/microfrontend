@@ -11,6 +11,7 @@ import GoogleUserLogin from "./components/GoogleUserLogin";
 
 export default function App() {
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [profileData, setProfileData] = useState(null);
 
   return (
     <div>
@@ -19,18 +20,32 @@ export default function App() {
           LAXMI CHITFUND
         </Link>
         <div className="header-right">
+          <Link to="userProfile">User Profile</Link>
+          <Link to="about">About</Link>
           <Link className="active" to="cart">
             CART
           </Link>
           <Link className="active" to="wishlist">
             WISHLIST
           </Link>
-          <Link to="userProfile">User Profile</Link>
-          <Link to="about">About</Link>
-          {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
-          <GoogleUserLogin loginSuccess={(val) => setLoginSuccess(val)} />
+          {loginSuccess && profileData && (
+            <span>
+              <img
+                className="profile-picture"
+                src={profileData.picture}
+                alt="user image"
+              />
+            </span>
+          )}
+          {
+            <GoogleUserLogin
+              loginSuccess={(val) => setLoginSuccess(val)}
+              setProfileData={(data) => setProfileData(data)}
+            />
+          }
         </div>
       </div>
+
       <div className="content">
         <div className="contentWrapper">
           <div className="App">

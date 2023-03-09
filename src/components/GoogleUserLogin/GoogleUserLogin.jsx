@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { GoogleLogin, googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import "./style.scss";
 
-const GoogleUserLogin = ({ loginSuccess }) => {
+const GoogleUserLogin = ({ loginSuccess, setProfileData }) => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
 
@@ -10,6 +11,10 @@ const GoogleUserLogin = ({ loginSuccess }) => {
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log("Login Failed:", error),
   });
+
+  useEffect(() => {
+    logOut();
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -24,6 +29,7 @@ const GoogleUserLogin = ({ loginSuccess }) => {
           }
         )
         .then((res) => {
+          setProfileData(res.data);
           setProfile(res.data);
           loginSuccess(true);
         })
@@ -39,24 +45,17 @@ const GoogleUserLogin = ({ loginSuccess }) => {
   };
 
   return (
-    <div>
-      <h2>React Google Login</h2>
-      <br />
-      <br />
+    <span>
       {profile ? (
-        <div>
-          <img src={profile.picture} alt="user image" />
-          <h3>User Logged in</h3>
-          <p>Name: {profile.name}</p>
-          <p>Email Address: {profile.email}</p>
-          <br />
-          <br />
-          <button onClick={logOut}>Log out</button>
-        </div>
+        <button className="googleSignIn" onClick={logOut}>
+          Log out
+        </button>
       ) : (
-        <button onClick={() => login()}>Sign in with Google 🚀 </button>
+        <button className="googleSignIn" onClick={() => login()}>
+          Sign in with Google 🚀{" "}
+        </button>
       )}
-    </div>
+    </span>
   );
 };
 export default GoogleUserLogin;
