@@ -116,7 +116,7 @@ const Celebration = () => {
     <div>
       <h1 className="happyBirthday" style={{ color: "white" }}>
         <img
-          src="https://media.licdn.com/dms/image/D4E03AQGBm3ktLI4Z4Q/profile-displayphoto-shrink_100_100/0/1676041338098?e=1684368000&v=beta&t=t4hzklbsPX-E-ufUvinwpds-xZkE5npXGhDSkLs7mO0"
+          src="https://scontent.fbho3-1.fna.fbcdn.net/v/t39.30808-6/324505766_905758887104748_211087763165572868_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qC5720PIosIAX8dDF-B&_nc_ht=scontent.fbho3-1.fna&oh=00_AfDfFpXxnaBh5sbw045lCY2K6z7TrXZihT2UmLn6t8WSCg&oe=641753CD"
           style={{ height: "520px" }}
         />
         Happy Birthday!
