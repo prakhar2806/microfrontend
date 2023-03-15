@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./style.scss";
 
-const Celebration = () => {
+const Checkout = () => {
   setTimeout(() => {
     handleClick();
   }, 100);
@@ -116,14 +116,13 @@ const Celebration = () => {
     <div>
       <h1 className="happyBirthday" style={{ color: "white" }}>
         <img
-          src="https://media.licdn.com/dms/image/D4E03AQGBm3ktLI4Z4Q/profile-displayphoto-shrink_100_100/0/1676041338098?e=1684368000&v=beta&t=t4hzklbsPX-E-ufUvinwpds-xZkE5npXGhDSkLs7mO0"
-          style={{ height: "520px" }}
+          src="https://img.freepik.com/premium-vector/thank-you-your-order_96807-2324.jpg?w=2000"
+          style={{ height: "400px" }}
         />
-        Happy Birthday!
       </h1>
       <canvas id="canvas"></canvas> 
     </div>
   );
 };
 
-export default Celebration;
+export default Checkout;

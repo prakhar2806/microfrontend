@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../../Redux/store";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 function Cart() {
@@ -56,7 +57,11 @@ function Cart() {
           </div>
           <div className="total-amount">${totalPrice}</div>
         </div>
-        <button className="buttonEle">Checkout</button>
+        <button className="buttonEle">
+          <Link className="active" to="checkout">
+            Checkout
+          </Link>
+        </button>
       </div>
     </div>
   );

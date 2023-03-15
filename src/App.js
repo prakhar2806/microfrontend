@@ -10,6 +10,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 import GoogleUserLogin from "./components/GoogleUserLogin";
 import Celebration from "./components/Celebration/Celebration";
+import Checkout from "./components/Checkout";
 
 export default function App() {
   const [loginSuccess, setLoginSuccess] = useState(false);
@@ -73,6 +74,7 @@ export default function App() {
               <Route path="wishlist" element={<Wishlist />} />
               <Route path="userProfile" element={<Profile />} />
               <Route path="about" element={<About />} />
+              <Route path="/cart/checkout" element={<Checkout />} />
               <Route path={"/product/item/:id"} element={<DetailsPage />} />
             </Routes>
           </div>
