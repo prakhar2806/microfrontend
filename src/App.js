@@ -59,7 +59,7 @@ export default function App() {
               <Route
                 path="/"
                 element={
-                  !loginSuccess ? (
+                  loginSuccess ? (
                     <Home />
                   ) : (
                     <>
