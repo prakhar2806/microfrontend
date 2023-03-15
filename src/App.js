@@ -24,7 +24,7 @@ export default function App() {
         <div className="header-right">
           {!loginSuccess && !profileData && (
             <Link className="active" to="userProfile">
-              User Profile
+              Profile
             </Link>
           )}
           {/* <Link to="about">About</Link> */}
@@ -59,7 +59,7 @@ export default function App() {
               <Route
                 path="/"
                 element={
-                  loginSuccess ? (
+                  !loginSuccess ? (
                     <Home />
                   ) : (
                     <>

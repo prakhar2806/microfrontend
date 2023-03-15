@@ -22,8 +22,11 @@ function DetailsPage() {
     <div>
       <img className="detailImage" src={preview.images[0]}></img>
       <div className="detailsdata">
-        <h3 className="title">{preview.title}</h3>
-        <h4 className="subtitle">{preview.brand}</h4>
+        <h2 className="titleData">{preview.title}</h2>
+        <h4 className="subtitleData">{preview.brand}</h4>
+        <h4 className="subtitleData">{preview.description}</h4>
+        <h4 className="subtitleData">{preview.category}</h4>
+        <h2 className="subtitleData">${preview.price}</h2>
       </div>
       <div className="actionButons">
         {!productAddedToCart && !addedToCart ? (
