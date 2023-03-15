@@ -1,16 +1,25 @@
 
 .card{
-    min-height: 550px;
+    min-height: 370px !important;
     margin-right: 20px;
     margin-bottom: 40px;
-
+    border-radius: 0px;
+    border: none;
     .card-img-top{
-        max-height: 200px;
+        max-height: 250px;
     }
-
     .footer{
+        display: none;
+    }
+}
+
+.card:hover{    
+    .footer{
+        width: 100%;
+        display: flex;
+        background-color: white;
         position: absolute;
-        bottom: 20px;
+        bottom: 0px;
         margin-top:20px;
 
         .btn{
@@ -18,18 +27,57 @@
         }
     }
 }
+
+.card-body{
+    padding: 10px 0px 0px 0px !important;
+}
+
 .addToCart{
     // pointer-events: none;
+    width: 50%;
+    padding: 10px 0px;
+    background-color: #FF9F00;
 }
 
 .removeFromCart{
-    background-color: rgb(255,62,108);
-    border:1px solid rgb(255,62,108);
+    width: 50%;
+    background-color: red;
+    border: none;
     color: black;
+    padding: 10px 0px;
 }
 
 .buyNow{
-    background-color: white;
-    border:1px solid black;
+    width: 50%;
+    background-color: #FB641C;
+    border: none;
     color: black;
+    padding: 10px 0px;
+}
+
+#imgLogo{
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-text{
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+}
+
+.selected{
+    border: 5px solid red;
+}
+
+.cartLabel{
+    position: absolute;
+    padding: 5px;
+    right: 0;
+    top:0;
+    background-color: red;
 }

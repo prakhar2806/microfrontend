@@ -5,6 +5,7 @@ import Cart from "./components/Cart";
 import Home from "./components/Home";
 import Wishlist from "./components/Wishlist";
 import Profile from "./components/Profile";
+import DetailsPage from "./components/DetailsPage";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 import GoogleUserLogin from "./components/GoogleUserLogin";
@@ -17,17 +18,27 @@ export default function App() {
     <div>
       <div className="header">
         <Link className="logo" to="/">
-          LAXMI CHITFUND
+          Mahima's Shopping App
         </Link>
         <div className="header-right">
-          <Link to="userProfile">User Profile</Link>
-          <Link to="about">About</Link>
+          {!loginSuccess && !profileData && (
+            <Link className="active" to="userProfile">
+              User Profile
+            </Link>
+          )}
+          {/* <Link to="about">About</Link> */}
           <Link className="active" to="cart">
             CART
           </Link>
           <Link className="active" to="wishlist">
             WISHLIST
           </Link>
+          {
+            <GoogleUserLogin
+              loginSuccess={(val) => setLoginSuccess(val)}
+              setProfileData={(data) => setProfileData(data)}
+            />
+          }
           {loginSuccess && profileData && (
             <span>
               <img
@@ -37,12 +48,6 @@ export default function App() {
               />
             </span>
           )}
-          {
-            <GoogleUserLogin
-              loginSuccess={(val) => setLoginSuccess(val)}
-              setProfileData={(data) => setProfileData(data)}
-            />
-          }
         </div>
       </div>
 
@@ -58,6 +63,7 @@ export default function App() {
               <Route path="wishlist" element={<Wishlist />} />
               <Route path="userProfile" element={<Profile />} />
               <Route path="about" element={<About />} />
+              <Route path={"/product/item/:id"} element={<DetailsPage />} />
             </Routes>
           </div>
         </div>

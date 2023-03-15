@@ -1,8 +1,9 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../Redux/store";
+import { addToCart, removeFromCart, addToPreview } from "../../Redux/store";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.scss";
 
 const Cards = (data) => {
@@ -18,34 +19,39 @@ const Cards = (data) => {
     value ? dispatch(addToCart(data.data)) : dispatch(removeFromCart(id));
   };
   return (
-    <Card className="card" style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={images[0]} />
+    <Card className={addedToCart ? `selected` : ``} style={{ width: "18rem" }}>
+      {addedToCart && <span className="cartLabel">Added to cart</span>}
+      <Link to="wishlist" onClick={() => addToPreview(data)}>
+        <div id="imgLogo">
+          <Card.Img variant="top" src={images[0]} />
+        </div>
+      </Link>
+
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>Brand: {brand}</Card.Text>
-        <Card.Text>Category: {category}</Card.Text>
         <Card.Text>{description}</Card.Text>
         <div className="footer">
           {!productAddedToCart && !addedToCart ? (
-            <Button
+            <span
               variant="primary"
               className="addToCart"
               onClick={() => addToCartClicked(true)}
             >
               Add to cart
-            </Button>
+            </span>
           ) : (
-            <Button
+            <span
               variant="primary"
               className="removeFromCart"
               onClick={() => addToCartClicked(false)}
             >
               Remove from cart
-            </Button>
+            </span>
           )}
-          <Button variant="primary" className="buyNow">
+          <span variant="primary" className="buyNow">
             Buy Now
-          </Button>
+          </span>
         </div>
       </Card.Body>
     </Card>

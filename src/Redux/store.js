@@ -6,6 +6,7 @@ export const shoppingSlice = createSlice({
   name: "shopping",
   initialState: {
     cart: [],
+    preview: {},
   },
   reducers: {
     addToCart: (state, action) => {
@@ -17,10 +18,14 @@ export const shoppingSlice = createSlice({
         1
       );
     },
+    addToPreview: (state, action) => {
+      return { ...state, preview: action.payload };
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = shoppingSlice.actions;
+export const { addToCart, removeFromCart, addToPreview } =
+  shoppingSlice.actions;
 
 export const shoppingReducer = shoppingSlice.reducer;
 

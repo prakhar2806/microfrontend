@@ -6,10 +6,25 @@
     float: left;
     color: black;
     text-align: center;
+    text-decoration: none;
+    font-size: 45px;
+    line-height: 25px;
+    border-radius: 4px;
+    margin-right: 10px;
+    border: none;
+    padding: 2px;
+}
+
+.googleSignOut{
+    float: left;
+    text-align: center;
     padding: 12px;
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
     border-radius: 4px;
     margin-right: 10px;
+    background-color: #c68f4e;
+    color: white;
+    border: none;
 }

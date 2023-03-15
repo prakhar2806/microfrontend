@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { GoogleLogin, googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import "./style.scss";
+// import { FcGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const GoogleUserLogin = ({ loginSuccess, setProfileData }) => {
   const [user, setUser] = useState([]);
@@ -47,12 +49,12 @@ const GoogleUserLogin = ({ loginSuccess, setProfileData }) => {
   return (
     <span>
       {profile ? (
-        <button className="googleSignIn" onClick={logOut}>
+        <button className="googleSignOut" onClick={logOut}>
           Log out
         </button>
       ) : (
         <button className="googleSignIn" onClick={() => login()}>
-          Sign in with Google 🚀{" "}
+          <FcGoogle />
         </button>
       )}
     </span>
