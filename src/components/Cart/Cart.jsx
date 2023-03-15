@@ -11,6 +11,7 @@ function Cart() {
   useEffect(() => {
     let prices = 0;
     if (cart.length == 0) {
+      setTotalPrice(0);
       return;
     }
     cart.forEach((element) => {
@@ -38,7 +39,7 @@ function Cart() {
             <div className="amount">${item.price}</div>
             <div
               className="remove"
-              onClick={() => dispatch(removeFromCart(item.id))}
+              onClick={() => dispatch(removeFromCart({ id: item.id }))}
             >
               <u>Remove</u>
             </div>

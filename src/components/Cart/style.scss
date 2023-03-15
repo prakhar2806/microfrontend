@@ -128,7 +128,10 @@
 .checkout{
 	float: right;
 	margin-right: 5%;
-	width: 28%;
+	width: 40%;
+	@media screen and (max-width: 500px) {
+		width: 70%;
+	}
 }
 .total{
 	width: 100%;
